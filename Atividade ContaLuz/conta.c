@@ -4,24 +4,29 @@
 
 int main()
 {
+    setlocale("LC_ALL", "Portuguese");
+
     char readingDate[10], payDate[10];
-    int readingNumber, quantityKw, spendingAverage, quantityConta;
-    float amountPay;
+    int readingNumber, quantityKw, spendingAverage;
+    float amountPay, priceKw, tax;
 
     welcome();
 
-    templateMessage("QUANTAS CONTAS IRÁ CADASTRAR");
-    scanf("%i", &quantityConta);
+    templateMessage("INFORME O NÚMERO DA LEITURA");
+    scanf("%i", &readingNumber);
     printf("\n");
+    templateMessage("INFORME A DATA DA LEITURA");
+    scanf("%s", &readingDate);
+    printf("\n");
+    templateMessage("INFORME QUANTOS KWs FOI CONSUMIDO");
+    scanf("%i", &quantityKw);
+    printf("\n");
+    templateMessage("INFORME O VALOR DO KW");
+    scanf("%f", &priceKw);
 
-    for (int i = 1; i <= quantityConta; i++)
-    {
-        templateMessage("INFORME O NÚMERO DA LEITURA");
-        scanf("%i", &readingNumber);
-        printf("\n");
-        templateMessage("INFORME A DATA DA LEITURA");
-        scanf("%s", &readingDate);
-    }
+    amountPay = quantityKw * priceKw + tax;
+
+    printf("VALOR DA FATURA: %f", amountPay);
 
     return 0;
 }
